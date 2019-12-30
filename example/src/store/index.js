@@ -8,8 +8,6 @@ const sagaMiddleware = createSagaMiddleware();
 
 const middleware = [sagaMiddleware];
 
-alert('kk');
-
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const store = createStore(

@@ -1,3 +1,3 @@
-export default function* rootSaga() {
-  console.log('kk');
-}
+import counter from './counter';
+
+export default counter;

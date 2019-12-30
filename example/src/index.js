@@ -7,19 +7,16 @@ import {
   decrementRequest
 } from './store/actions/counter';
 
+const { subscribe, dispatch, getState } = store;
 const select = selector => document.querySelector(selector);
 
-const incrementButton = select('#increment');
-const decrementButton = select('#decrement');
-const asyncIncrement = select('#async-increment');
-const asyncDecrement = select('#async-decrement');
-const displayer = select('h1');
+const display = select('h1');
 
-incrementButton.onclick = () => store.dispatch(increment());
-decrementButton.onclick = () => store.dispatch(decrement());
-asyncIncrement.onclick = () => store.dispatch(incrementRequest());
-asyncDecrement.onclick = () => store.dispatch(decrementRequest());
+select('#increment').onclick = () => dispatch(increment());
+select('#decrement').onclick = () => dispatch(decrement());
+select('#async-increment').onclick = () => dispatch(incrementRequest());
+select('#async-decrement').onclick = () => dispatch(decrementRequest());
 
-store.subscribe(() => {
-  displayer.innerText = store.getState().counter;
+subscribe(() => {
+  display.innerText = getState().counter;
 });
